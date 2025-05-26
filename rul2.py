@@ -1,59 +1,82 @@
-import streamlit as st
 import pandas as pd
-import joblib
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import joblib
+import numpy as np
 
-# Load dataset
-df = pd.read_csv("vehicle_rul_dataset.csv")
+# Load your dataset
+df = pd.read_csv("rul.csv")  # Replace with your file
 
 # Encode categorical columns
 label_encoders = {}
-for col in ['terrain', 'brake_score', 'vehicle_type']:
+for col in ['vehicle_type', 'vehicle_part']:
     le = LabelEncoder()
     df[col] = le.fit_transform(df[col])
     label_encoders[col] = le
 
-# Features and label
-X = df.drop(columns=['vehicle_id', 'RUL_km'])
+# Define features and target
+X = df[['vehicle_type', 'vehicle_part', 'total_km', 'last_service_km']]
 y = df['RUL_km']
+
+# Split dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train model
 model = RandomForestRegressor(n_estimators=100, random_state=42)
-model.fit(X, y)
+model.fit(X_train, y_train)
 
-# Streamlit UI
-st.title("Vehicle RUL Predictor")
+# Predict and evaluate
+y_pred = model.predict(X_test)
+mae = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2 = r2_score(y_test, y_pred)
 
-st.markdown("Enter the following vehicle details:")
+print("Model Evaluation Metrics:")
+print(f"  Mean Absolute Error (MAE): {mae:.2f}")
+print(f"  Root Mean Squared Error (RMSE): {rmse:.2f}")
+print(f"  R^2 Score: {r2:.3f}")
 
-total_km = st.number_input("Total kilometers driven", min_value=0, step=100)
-avg_trip_km = st.number_input("Average trip length (in km)", min_value=0.0, step=1.0)
-trips_per_day = st.number_input("Average trips per day", min_value=0, step=1)
-last_replacement_km = st.number_input("Kilometers at last replacement", min_value=0, step=100)
+# Save model
+joblib.dump(model, "vehicle_rul_model.pkl")
+print("\n✅ Model saved as 'vehicle_rul_model.pkl'")
 
-terrain_input = st.selectbox("Terrain", options=['flat', 'hilly'])
-urban_ratio = st.slider("Urban driving ratio", min_value=0.0, max_value=1.0, step=0.01)
-brake_score_input = st.selectbox("Brake Score", options=['low', 'medium', 'high'])
-vehicle_type_input = st.selectbox("Vehicle Type", options=['sedan', 'SUV', 'hatchback'])
 
-# When Submit is clicked
-if st.button("Predict RUL"):
-    # Encode inputs
-    terrain = label_encoders['terrain'].transform([terrain_input])[0]
-    brake_score = label_encoders['brake_score'].transform([brake_score_input])[0]
-    vehicle_type = label_encoders['vehicle_type'].transform([vehicle_type_input])[0]
+# ---------- MAIN PART FOR USER INPUT ----------
 
-    input_data = pd.DataFrame([{
+def predict_rul_input():
+    print("\n--- Predict Remaining Useful Life (RUL) ---")
+    # Get user input
+    vehicle_type_input = input("Enter vehicle type: ").strip().lower()
+    vehicle_part_input = input("Enter vehicle part: ").strip().lower()
+    total_km = float(input("Enter total kilometers driven: "))
+    last_service = float(input("Enter kilometers at last service: "))
+
+    # Encode categorical inputs
+    if vehicle_type_input not in label_encoders['vehicle_type'].classes_:
+        print("❌ Unknown vehicle type.")
+        return
+    if vehicle_part_input not in label_encoders['vehicle_part'].classes_:
+        print("❌ Unknown vehicle part.")
+        return
+
+    vehicle_type_encoded = label_encoders['vehicle_type'].transform([vehicle_type_input])[0]
+    vehicle_part_encoded = label_encoders['vehicle_part'].transform([vehicle_part_input])[0]
+
+    # Prepare input
+    input_df = pd.DataFrame([{
+        'vehicle_type': vehicle_type_encoded,
+        'vehicle_part': vehicle_part_encoded,
         'total_km': total_km,
-        'avg_trip_km': avg_trip_km,
-        'trips_per_day': trips_per_day,
-        'last_replacement_km': last_replacement_km,
-        'terrain': terrain,
-        'urban_ratio': urban_ratio,
-        'brake_score': brake_score,
-        'vehicle_type': vehicle_type
+        'last_service_km': last_service
     }])
 
-    prediction = model.predict(input_data)[0]
-    st.success(f"Predicted Remaining Useful Life (RUL): {int(prediction)} kilometers")
+    # Load model
+    loaded_model = joblib.load("vehicle_rul_model.pkl")
+    prediction = loaded_model.predict(input_df)[0]
+    print(f"\n🔧 Predicted RUL: {int(prediction)} kilometers")
+
+# Run prediction if script is executed directly
+if __name__ == "__main__":
+    predict_rul_input()
