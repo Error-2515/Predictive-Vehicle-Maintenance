@@ -29,6 +29,15 @@ def register_vehicle_in_tinydb(vehicle_info):
         'make_year': vehicle_info['make_year'],
         'color': vehicle_info['color'],
         'phone_number': vehicle_info['phone_number'],
+        'Fuel_Type': vehicle_info['Fuel_Type'],
+        'Transmission_Type': vehicle_info['Transmission_Type'],
+        'Engine_Size': vehicle_info['Engine_Size'],
+        'Odometer_Reading': vehicle_info['Odometer_Reading'],
+        'Fuel_Efficiency': vehicle_info['Fuel_Efficiency'],
+        'Tire_Condition': vehicle_info['Tire_Condition'],
+        'Brake_Condition': vehicle_info['Brake_Condition'],
+        'Battery_Status': vehicle_info['Battery_Status'],
+        'Owner_Type': vehicle_info['Battery_Status'],
         'parts': []
     })
 
