@@ -14,7 +14,7 @@ with st.form("vehicle_form"):
     Transmission_Type = st.text_input("Transmission Type")
     Engine_Size = st.number_input("Engine Size (in cc)", min_value=800, max_value=2500, step=100)
     Odometer_Reading = st.number_input("Odometer Reading", min_value=0, max_value=200000, step=1000)
-    Fuel_Efficiency = st.number_input("Fuel Efficiency", min_value=10, max_value=20, step=0.1)
+    Fuel_Efficiency = st.number_input("Fuel Efficiency", min_value=10, max_value=20, step=1)
     Tire_Condition = st.text_input("Tire Condition")
     Brake_Condition = st.text_input("Brake Condition")
     Battery_Status = st.text_input("Battery Status")
@@ -23,6 +23,7 @@ with st.form("vehicle_form"):
 
 
     submitted = st.form_submit_button("Register Vehicle")
+    
     if submitted:
         vehicle_info = {
             "number_plate": number_plate.upper().strip(),
