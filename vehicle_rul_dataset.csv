@@ -1,0 +1,7 @@
+vehicle_id,total_km,avg_trip_km,trips_per_day,last_replacement_km,terrain,urban_ratio,brake_score,vehicle_type,RUL_km
+V001,42000,12,4,30000,hilly,0.9,high,sedan,8000
+V002,60000,25,2,40000,flat,0.5,medium,SUV,10000
+V003,35000,18,3,25000,hilly,0.7,high,hatchback,5000
+V004,47000,30,1,20000,flat,0.3,low,sedan,15000
+V005,51000,20,2,35000,hilly,0.6,medium,SUV,7000
+V006,39000,14,3,28000,flat,0.8,high,hatchback,6000
