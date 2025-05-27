@@ -1,1 +1,23 @@
-{"_default": {"1": {"number_plate": "TS13AB1234", "owner_name": "abdullah huussain shaikh", "model": "apache tvs", "make_year": 2024, "color": "black", "phone_number": "9550807130", "parts": []}, "2": {"number_plate": "TS15AB1234", "owner_name": "fveqe", "model": "vevfeve", "make_year": 2003, "color": "green", "phone_number": "98789885223", "parts": []}, "3": {"number_plate": "TS15AB1239", "owner_name": "Ali", "make_year": 2010, "color": "white", "phone_number": "9876543210", "vehicle_type": "truck", "total_km": "80000", "parts": [{"vehicle_part": "air filter", "manufacture_date": "2023-01-10", "last_service_date": "2025-04-01", "last_service_km": "75000", "RUL_km": "", "condition_notes": "Working fine"}]}, "4": {"number_plate": "TS11AB1111", "owner_name": "test", "model": "test", "make_year": 2025, "color": "black", "phone_number": "1111111111", "parts": [{"part_name": "air filter", "manufacture_date": "2025-05-15", "last_service_date": "2025-05-15", "condition_notes": "good"}]}, "5": {"number_plate": "TS11AB1234", "owner_name": "test", "model": "sedan", "make_year": 2000, "color": "black", "phone_number": "999999999", "parts": [{"part_name": "air filter", "manufacture_date": "2025-02-12", "last_service_date": "2025-05-19", "condition_notes": "good codition"}]}, "6": {"number_plate": "AP13AF5006", "owner_name": "abdulllah hussaain shaikh", "model": "activa 3g", "make_year": 2014, "color": "black", "phone_number": "9550807130", "parts": [{"part_name": "odometer", "manufacture_date": "2024-05-09", "last_service_date": "2025-05-17", "condition_notes": "in good condition"}]}}}
+{
+    "_default": {
+        "1": {
+            "number_plate": "TS11EK2868",
+            "owner_name": "Ali",
+            "model": "Truck",
+            "make_year": 2003,
+            "color": "Black",
+            "phone_number": "1234567890",
+            "Fuel_Type": "Diesel",
+            "Transmission_Type": "Manual",
+            "Engine_Size": 1900,
+            "Odometer_Reading": 19000,
+            "Fuel_Efficiency": 16,
+            "Tire_Condition": "Good",
+            "Brake_Condition": "Good",
+            "Battery_Status": "Weak",
+            "Owner_Type": "1",
+            "Accident_History": 3,
+            "parts": []
+        }
+    }
+}
