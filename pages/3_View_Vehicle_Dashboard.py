@@ -1,7 +1,7 @@
 import streamlit as st
 from register import fetch_vehicle_with_parts
 import pandas as pd
-
+from pmv import predict_by_number_plate
 st.title("📊 Vehicle Dashboard")
 
 number_plate = st.text_input("Enter Number Plate to Search").upper().strip()
@@ -19,6 +19,14 @@ if st.button("Search"):
         st.write(f"**Make Year:** {vehicle['make_year']}")
         st.write(f"**Color:** {vehicle['color']}")
         st.write(f"**Phone:** {vehicle['phone_number']}")
+        # 🔍 Predict maintenance using function from pmv.py
+        prediction = predict_by_number_plate(number_plate)
+
+        # ✅ Display result
+        if prediction == 1:
+            st.title("🚨 This vehicle **NEEDS maintenance**.")
+        else:
+            st.title("✅ This vehicle **does NOT need maintenance**.")
 
         st.markdown("---")
         st.subheader("🛠️ Parts Information")
