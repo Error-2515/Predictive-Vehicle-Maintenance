@@ -40,10 +40,10 @@ def predict_rul_from_db(number_plate: str):
 
         # Prepare input for prediction
         input_df = pd.DataFrame([{
-            'vehicle_type': vehicle_type,
+            'vehicle_type': str(vehicle_type),
             'vehicle_part': part_name,
             'total_km': total_km,
-            'last_service': last_service_km
+            'last_service_km': last_service_km
         }])
 
         try:

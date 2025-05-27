@@ -9,6 +9,7 @@ with st.form("part_form"):
     manufacture_date = st.date_input("Manufacture Date")
     last_service_date = st.date_input("Last Service Date")
     condition_notes = st.text_area("Condition Notes")
+    
 
     submitted = st.form_submit_button("Add Part")
     if submitted:
