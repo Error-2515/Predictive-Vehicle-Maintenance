@@ -15,7 +15,7 @@
             "Tire_Condition": "Good",
             "Brake_Condition": "Good",
             "Battery_Status": "Weak",
-            "Owner_Type": "Weak",
+            "Owner_Type": "1",
             "Accident_History": 3,
             "parts": []
         }
