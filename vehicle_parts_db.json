@@ -56,6 +56,34 @@
                     "condition_notes": "Working fine"
                 }
             ]
-    }
+        },
+        "4": {
+            "number_plate": "AP13AF5006",
+            "owner_name": "abdullah",
+            "model": "sedan",
+            "make_year": 2020,
+            "color": "black",
+            "phone_number": "9550807130",
+            "Fuel_Type": "Petrol",
+            "Transmission_Type": "Automatic",
+            "Engine_Size": 2000,
+            "Odometer_Reading": 19000,
+            "Fuel_Efficiency": 10,
+            "Tire_Condition": "new",
+            "Brake_Condition": "new",
+            "Battery_Status": "new",
+            "Owner_Type": "new",
+            "Accident_History": 1,
+            "parts": [
+                {
+                    "vehicle_part": "brake_pad",
+                    "last_service_km": 18990,
+                    "manufacture_date": "2025-05-28",
+                    "last_service_date": "2025-05-28",
+                    "condition_notes": "",
+                    "RUL_km": ""
+                }
+            ]
+        }
     }
 }

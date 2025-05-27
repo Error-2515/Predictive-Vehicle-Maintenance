@@ -4,7 +4,7 @@ from register import add_part_to_vehicle
 st.title("⚙️ Add Part to Vehicle")
 
 with st.form("part_form"):
-    parts=["airfilter","airfilter"]
+    parts=["brake_pad","engine","battery","transmission"]
     number_plate = st.text_input("Enter Registered Number Plate").upper().strip()
     part_name = st.selectbox(label="choose part",options=parts)
     last_service_km=st.number_input("last services (in kms)",min_value=1)
