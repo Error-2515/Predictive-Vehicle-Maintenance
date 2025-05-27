@@ -37,6 +37,25 @@
             "Owner_Type": "1",
             "Accident_History": 1,
             "parts": []
-        }
+        },
+        "3": {
+            "number_plate": "TS15AB1239",
+            "owner_name": "Ali",
+            "make_year": 2010,
+            "color": "white",
+            "phone_number": "9876543210",
+            "vehicle_type": "truck",
+            "total_km": "80000",
+            "parts": [
+                {
+                    "vehicle_part": "battery",
+                    "manufacture_date": "2023-01-10",
+                    "last_service_date": "2025-04-01",
+                    "last_service_km": "75000",
+                    "RUL_km": "",
+                    "condition_notes": "Working fine"
+                }
+            ]
+    }
     }
 }

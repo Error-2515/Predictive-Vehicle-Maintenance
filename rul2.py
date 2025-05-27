@@ -37,7 +37,9 @@ print("Model Evaluation Metrics:")
 print(f"  Mean Absolute Error (MAE): {mae:.2f}")
 print(f"  Root Mean Squared Error (RMSE): {rmse:.2f}")
 print(f"  R^2 Score: {r2:.3f}")
-
+# Save encoders
+joblib.dump(label_encoders['vehicle_type'], "vehicle_type_encoder.pkl")
+joblib.dump(label_encoders['vehicle_part'], "vehicle_part_encoder.pkl")
 # Save model
 joblib.dump(model, "vehicle_rul_model.pkl")
 print("\n✅ Model saved as 'vehicle_rul_model.pkl'")
@@ -63,6 +65,8 @@ def predict_rul_input():
 
     vehicle_type_encoded = label_encoders['vehicle_type'].transform([vehicle_type_input])[0]
     vehicle_part_encoded = label_encoders['vehicle_part'].transform([vehicle_part_input])[0]
+
+
 
     # Prepare input
     input_df = pd.DataFrame([{
