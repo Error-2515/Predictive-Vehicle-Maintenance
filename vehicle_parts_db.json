@@ -1,0 +1,42 @@
+{
+    "_default": {
+        "1": {
+            "number_plate": "TS11EK2868",
+            "owner_name": "Ali",
+            "model": "Truck",
+            "make_year": 2003,
+            "color": "Black",
+            "phone_number": "1234567890",
+            "Fuel_Type": "Diesel",
+            "Transmission_Type": "Manual",
+            "Engine_Size": 1900,
+            "Odometer_Reading": 19000,
+            "Fuel_Efficiency": 16,
+            "Tire_Condition": "Good",
+            "Brake_Condition": "Good",
+            "Battery_Status": "Weak",
+            "Owner_Type": "1",
+            "Accident_History": 3,
+            "parts": []
+        },
+        "2": {
+            "number_plate": "TG11A0593",
+            "owner_name": "Mir",
+            "model": "Bike",
+            "make_year": 2023,
+            "color": "Black",
+            "phone_number": "6789054321",
+            "Fuel_Type": "Petrol",
+            "Transmission_Type": "Manual",
+            "Engine_Size": 200,
+            "Odometer_Reading": 7300,
+            "Fuel_Efficiency": 18,
+            "Tire_Condition": "good",
+            "Brake_Condition": "good",
+            "Battery_Status": "new",
+            "Owner_Type": "1",
+            "Accident_History": 1,
+            "parts": []
+        }
+    }
+}
