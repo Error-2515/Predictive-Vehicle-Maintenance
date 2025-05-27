@@ -19,6 +19,7 @@ with st.form("vehicle_form"):
     Brake_Condition = st.text_input("Brake Condition")
     Battery_Status = st.text_input("Battery Status")
     Owner_Type = st.number_input("Owner Type", min_value=1, max_value=10, step=1)
+    Accident_History = st.number_input("No. Of Accidents", min_value=1, max_value=5, step=1)
 
 
 
@@ -41,6 +42,7 @@ with st.form("vehicle_form"):
             "Brake_Condition": Brake_Condition,
             "Battery_Status": Battery_Status,
             "Owner_Type": int(Owner_Type),
+            "Accident_History": int(Accident_History),
         }
         result = register_vehicle_in_tinydb(vehicle_info)
         if result["status"] == "success":

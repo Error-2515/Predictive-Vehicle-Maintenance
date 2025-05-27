@@ -38,6 +38,7 @@ def register_vehicle_in_tinydb(vehicle_info):
         'Brake_Condition': vehicle_info['Brake_Condition'],
         'Battery_Status': vehicle_info['Battery_Status'],
         'Owner_Type': vehicle_info['Battery_Status'],
+        'Accident_History': vehicle_info['Accident_History'],
         'parts': []
     })
 
