@@ -7,7 +7,7 @@ import joblib
 import numpy as np
 
 # Load your dataset
-df = pd.read_csv("rul.csv")  # Replace with your file
+df = pd.read_csv("vehicle_parts_rul_randomized.csv")  # Replace with your file
 
 # Encode categorical columns
 label_encoders = {}
@@ -17,7 +17,7 @@ for col in ['vehicle_type', 'vehicle_part']:
     label_encoders[col] = le
 
 # Define features and target
-X = df[['vehicle_type', 'vehicle_part', 'total_km', 'last_service_km']]
+X = df[['vehicle_type', 'vehicle_part', 'odometer_reading', 'last_service_km']]
 y = df['RUL_km']
 
 # Split dataset
@@ -43,6 +43,18 @@ joblib.dump(label_encoders['vehicle_part'], "vehicle_part_encoder.pkl")
 # Save model
 joblib.dump(model, "vehicle_rul_model.pkl")
 print("\n✅ Model saved as 'vehicle_rul_model.pkl'")
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+importances = model.feature_importances_
+feature_names = X.columns
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x=importances, y=feature_names)
+plt.title("Feature Importance")
+plt.xlabel("Importance")
+plt.ylabel("Feature")
+plt.show()
 
 
 # ---------- MAIN PART FOR USER INPUT ----------
@@ -81,6 +93,6 @@ def predict_rul_input():
     prediction = loaded_model.predict(input_df)[0]
     print(f"\n🔧 Predicted RUL: {int(prediction)} kilometers")
 
-# Run prediction if script is executed directly
-if __name__ == "__main__":
-    predict_rul_input()
+# # Run prediction if script is executed directly
+# if __name__ == "__main__":
+#     predict_rul_input()

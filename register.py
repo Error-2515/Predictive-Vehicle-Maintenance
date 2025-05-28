@@ -25,20 +25,20 @@ def register_vehicle_in_tinydb(vehicle_info):
     db.insert({
         'number_plate': vehicle_info['number_plate'],
         'owner_name': vehicle_info['owner_name'],
-        'model': vehicle_info['model'],
+        'vehicle_type': vehicle_info['vehicle_type'],
         'make_year': vehicle_info['make_year'],
         'color': vehicle_info['color'],
         'phone_number': vehicle_info['phone_number'],
-        'Fuel_Type': vehicle_info['Fuel_Type'],
-        'Transmission_Type': vehicle_info['Transmission_Type'],
-        'Engine_Size': vehicle_info['Engine_Size'],
-        'Odometer_Reading': vehicle_info['Odometer_Reading'],
-        'Fuel_Efficiency': vehicle_info['Fuel_Efficiency'],
-        'Tire_Condition': vehicle_info['Tire_Condition'],
-        'Brake_Condition': vehicle_info['Brake_Condition'],
-        'Battery_Status': vehicle_info['Battery_Status'],
-        'Owner_Type': vehicle_info['Battery_Status'],
-        'Accident_History': vehicle_info['Accident_History'],
+        'fuel_type': vehicle_info['fuel_type'],
+        'transmission_type': vehicle_info['transmission_type'],
+        'engine_size': vehicle_info['engine_size'],
+        'odometer_reading': vehicle_info['odometer_reading'],
+        'fuel_efficiency': vehicle_info['fuel_efficiency'],
+        'tire_condition': vehicle_info['tire_condition'],
+        'brake_condition': vehicle_info['brake_condition'],
+        'battery_status': vehicle_info['battery_status'],
+        'owner_type': vehicle_info['battery_status'],
+        'accident_history': vehicle_info['accident_history'],
         'parts': []
     })
 
@@ -106,13 +106,13 @@ def input_vehicle_details():
     }
 
 def input_part_details():
-    part_name = input("Enter Part Name: ")
+    vehicle_part = input("Enter Part Name: ")
     manufacture_date = input("Enter Manufacture Date (YYYY-MM-DD): ")
     last_service_date = input("Enter Last Service Date (YYYY-MM-DD): ")
     condition_notes = input("Enter Condition Notes: ")
 
     return {
-        'part_name': part_name,
+        'vehicle_part': vehicle_part,
         'manufacture_date': manufacture_date,
         'last_service_date': last_service_date,
         'condition_notes': condition_notes
@@ -120,7 +120,7 @@ def input_part_details():
 
 
 # Update a specific part for a vehicle
-def update_part_for_vehicle(number_plate, part_name, updated_part):
+def update_part_for_vehicle(number_plate, vehicle_part, updated_part):
     Vehicle = Query()
     vehicles = db.search(Vehicle.number_plate == number_plate)
     if not vehicles:
@@ -128,7 +128,7 @@ def update_part_for_vehicle(number_plate, part_name, updated_part):
 
     parts = vehicles[0]["parts"]
     for idx, part in enumerate(parts):
-        if part["part_name"] == part_name:
+        if part["vehicle_part"] == vehicle_part:
             parts[idx] = updated_part
             break
 
@@ -148,6 +148,14 @@ def update_vehicle_last_serviced(number_plate, mechanic_note=""):
 
     db.update(update_fields, Vehicle.number_plate == number_plate)
     return True
+
+def update_vehicle_odometer(number_plate, new_km):
+    Vehicle = Query()
+    results = db.search(Vehicle.number_plate == number_plate)
+    if results:
+        vehicle = results[0]
+        vehicle["Odometer_Reading"] = new_km
+        db.update(vehicle, Vehicle.number_plate == number_plate)
 
 
 # Example CLI usage (optional testing)

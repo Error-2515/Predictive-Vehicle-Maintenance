@@ -5,6 +5,7 @@ import joblib
 # Load the trained model
 model = joblib.load('maintenance_model.pkl')
 
+
 def predict_by_number_plate(number_plate, db_path='vehicle_parts_db.json'):
     # Load database
     db = TinyDB(db_path)
@@ -82,4 +83,3 @@ def predict_by_number_plate(number_plate, db_path='vehicle_parts_db.json'):
     prediction = model.predict(input_df)[0]
 
     return prediction  # ✅ Make sure it returns the result (0 or 1)
-predict_by_number_plate("TS11EK2868")

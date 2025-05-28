@@ -6,20 +6,20 @@ st.title("📋 Register a New Vehicle")
 with st.form("vehicle_form"):
     number_plate = st.text_input("Number Plate")
     owner_name = st.text_input("Owner Name")
-    model = st.text_input("Vehicle Model")
+    model = st.selectbox("Vehicle Model",['car','truck','bike'])
     make_year = st.number_input("Make Year", min_value=1900, max_value=2100, step=1)
     color = st.text_input("Vehicle Color")
     phone_number = st.text_input("Owner's Phone Number")
-    Fuel_Type = st.text_input("Fuel Type")
-    Transmission_Type = st.text_input("Transmission Type")
+    Fuel_Type = st.selectbox("Fuel Type",['Petrol','Diesel','Electric'])
+    Transmission_Type = st.selectbox("Transmission Type",['Automatic','Manual'])
     Engine_Size = st.number_input("Engine Size (in cc)", min_value=50, max_value=2500, step=100)
-    Odometer_Reading = st.number_input("Odometer Reading", min_value=0, max_value=200000, step=1000)
+    Odometer_Reading = st.number_input("Odometer Reading", min_value=0, max_value=900000, step=1000)
     Fuel_Efficiency = st.number_input("Fuel Efficiency", min_value=10, max_value=100, step=1)
-    Tire_Condition = st.text_input("Tire Condition")
-    Brake_Condition = st.text_input("Brake Condition")
-    Battery_Status = st.text_input("Battery Status")
-    Owner_Type = st.number_input("Owner Type", min_value=1, max_value=10, step=1)
-    Accident_History = st.number_input("No. Of Accidents", min_value=1, max_value=5, step=1)
+    Tire_Condition = st.selectbox("Tire Condition",['New','Good','Worn Out'])
+    Brake_Condition = st.selectbox("Brake Condition",['New','Good','Worn Out'])
+    Battery_Status = st.selectbox("Battery Status",['New','Good','Weak'])
+    Owner_Type = st.selectbox("Owner Type",['1','2','3'])
+    Accident_History = st.selectbox("No. Of Accidents",['0','1','2','3'])
 
 
 
@@ -29,20 +29,20 @@ with st.form("vehicle_form"):
         vehicle_info = {
             "number_plate": number_plate.upper().strip(),
             "owner_name": owner_name,
-            "model": model,
+            "vehicle_type": model,
             "make_year": int(make_year),
             "color": color,
             "phone_number": phone_number,
-            "Fuel_Type": Fuel_Type,
-            "Transmission_Type": Transmission_Type,
-            "Engine_Size": int(Engine_Size),
-            "Odometer_Reading": int(Odometer_Reading),
-            "Fuel_Efficiency": int(Fuel_Efficiency),
-            "Tire_Condition": Tire_Condition,
-            "Brake_Condition": Brake_Condition,
-            "Battery_Status": Battery_Status,
-            "Owner_Type": int(Owner_Type),
-            "Accident_History": int(Accident_History),
+            "fuel_type": Fuel_Type,
+            "transmission_type": Transmission_Type,
+            "engine_size": int(Engine_Size),
+            "odometer_reading": int(Odometer_Reading),
+            "fuel_efficiency": int(Fuel_Efficiency),
+            "tire_condition": Tire_Condition,
+            "brake_condition": Brake_Condition,
+            "battery_status": Battery_Status,
+            "owner_type": int(Owner_Type),
+            "accident_history": int(Accident_History),
         }
         result = register_vehicle_in_tinydb(vehicle_info)
         if result["status"] == "success":

@@ -1,14 +1,26 @@
 from tinydb import TinyDB, Query
 import joblib
 import pandas as pd
+from tinydb.storages import JSONStorage
+import json
 
 # Load the model and encoders
 model = joblib.load("vehicle_rul_model.pkl")
 vehicle_type_encoder = joblib.load("vehicle_type_encoder.pkl")
 part_name_encoder = joblib.load("vehicle_part_encoder.pkl")
 
-# Load the TinyDB
-db = TinyDB("vehicle_parts_db.json")
+# Fixed PrettyJSONStorage with self._filename
+class PrettyJSONStorage(JSONStorage):
+    def __init__(self, path, **kwargs):
+        super().__init__(path, **kwargs)
+        self._filename = path
+
+    def write(self, data):
+        with open(self._filename, 'w') as f:
+            json.dump(data, f, indent=4)
+
+# Initialize TinyDB
+db = TinyDB('vehicle_parts_db.json', storage=PrettyJSONStorage)
 
 def predict_rul_from_db(number_plate: str):
     Vehicle = Query()
@@ -68,13 +80,14 @@ def predict_rul_from_db(number_plate: str):
 
     # Save updates to database
     db.update(vehicle, Vehicle.number_plate == number_plate)
+    return "rul function executed"
 
 
 # 🔘 MAIN INTERACTIVE SECTION
 if __name__ == "__main__":
     print("🚗 Vehicle Part RUL Predictor")
     
-    number_plate_input = 'TS15AB1239'
+    number_plate_input = 'AP13AF5006'
 
     if number_plate_input.lower() == 'exit':
         print("👋 Exiting. Have a great day!")

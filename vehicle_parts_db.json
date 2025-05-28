@@ -60,30 +60,128 @@
         "4": {
             "number_plate": "AP13AF5006",
             "owner_name": "abdullah",
-            "model": "sedan",
+            "vehicle_type": "car",
             "make_year": 2020,
             "color": "black",
             "phone_number": "9550807130",
-            "Fuel_Type": "Petrol",
-            "Transmission_Type": "Automatic",
-            "Engine_Size": 2000,
-            "Odometer_Reading": 19000,
-            "Fuel_Efficiency": 10,
-            "Tire_Condition": "new",
-            "Brake_Condition": "new",
-            "Battery_Status": "new",
-            "Owner_Type": "new",
-            "Accident_History": 1,
+            "fuel_type": "Petrol",
+            "transmission_type": "Automatic",
+            "engine_size": 2000,
+            "odometer_reading": 25000,
+            "fuel_efficiency": 10,
+            "tire_condition": "new",
+            "brake_condition": "new",
+            "battery_status": "new",
+            "owner_type": "1",
+            "accident_history": 1,
             "parts": [
                 {
-                    "vehicle_part": "brake_pad",
-                    "last_service_km": 18990,
+                    "vehicle_part": "brake pads",
+                    "last_service_km": 25000,
                     "manufacture_date": "2025-05-28",
                     "last_service_date": "2025-05-28",
                     "condition_notes": "",
-                    "RUL_km": ""
+                    "RUL_km": 38152.26,
+                    "days_since_service": 0
+                },
+                {
+                    "vehicle_part": "engine",
+                    "last_service_km": 18000,
+                    "manufacture_date": "2025-05-28",
+                    "last_service_date": "2025-05-28",
+                    "condition_notes": "",
+                    "RUL_km": 241509.4,
+                    "days_since_service": 1
                 }
-            ]
+            ],
+            "last_serviced": "2025-05-28"
+        },
+        "5": {
+            "number_plate": "TS13FA0128",
+            "owner_name": "abdullah",
+            "vehicle_type": "bike",
+            "make_year": 2024,
+            "color": "black",
+            "phone_number": "9550807130",
+            "fuel_type": "Petrol",
+            "transmission_type": "Manual",
+            "engine_size": 160,
+            "odometer_reading": 325000,
+            "fuel_efficiency": 35,
+            "tire_condition": "Good",
+            "brake_condition": "Good",
+            "battery_status": "Weak",
+            "owner_type": "Weak",
+            "accident_history": 0,
+            "parts": [
+                {
+                    "vehicle_part": "air filter",
+                    "last_service_km": 290000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 15449.19
+                },
+                {
+                    "vehicle_part": "battery",
+                    "last_service_km": 200000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 37767.78
+                },
+                {
+                    "vehicle_part": "brake pads",
+                    "last_service_km": 200000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 42241.14
+                },
+                {
+                    "vehicle_part": "clutch",
+                    "last_service_km": 200000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 69492.9
+                },
+                {
+                    "vehicle_part": "engine",
+                    "last_service_km": 325999,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 183661.14,
+                    "days_since_service": 0
+                },
+                {
+                    "vehicle_part": "gearbox",
+                    "last_service_km": 250000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 197126.29
+                },
+                {
+                    "vehicle_part": "suspension",
+                    "last_service_km": 250000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 128880.74
+                },
+                {
+                    "vehicle_part": "tires",
+                    "last_service_km": 250000,
+                    "manufacture_date": "2025-05-29",
+                    "last_service_date": "2025-05-29",
+                    "condition_notes": "",
+                    "RUL_km": 40017.57
+                }
+            ],
+            "last_serviced": "2025-05-29",
+            "Odometer_Reading": 325999
         }
     }
 }
