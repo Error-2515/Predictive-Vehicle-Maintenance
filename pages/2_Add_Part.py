@@ -2,7 +2,25 @@ import streamlit as st
 from register import add_part_to_vehicle, fetch_vehicle_with_parts
 
 st.title("⚙️ Add Part to Vehicle")
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+with st.sidebar:
+    
+    st.markdown(
+    """
+    <div style='padding:20px;'></div>
+    """,unsafe_allow_html=True)
+    st.page_link("pages/1_Register_vehicle.py", label="📊 Vehicle Dashboard")
+    st.page_link("pages/2_Add_Part.py", label="⚙️ Add Parts")
+    st.page_link("pages/3_View_Vehicle_Dashboard.py", label="📈 Vehicle Dashboard")
+    st.page_link("pages/4_service_report.py", label="🧰 Service Report")
 
+    
 with st.form("part_form"):
     parts = ["air filter", "battery", "brake pads", "clutch", "engine", "gearbox", "suspension", "tires"]
     number_plate = st.text_input("Enter Registered Number Plate").upper().strip()

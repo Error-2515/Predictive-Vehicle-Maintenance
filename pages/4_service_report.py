@@ -4,12 +4,31 @@ from register import (
     fetch_vehicle_with_parts,
     update_part_for_vehicle,
     update_vehicle_last_serviced,
-    update_vehicle_odometer
+    update_vehicle_odometer,
+    update_vehicle_last_serviced
 )
 
 st.set_page_config(page_title="Service Report", layout="wide")
 st.title("🔧 Vehicle Service Report")
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+with st.sidebar:
+    
+    st.markdown(
+    """
+    <div style='padding:20px;'></div>
+    """,unsafe_allow_html=True)
+    st.page_link("pages/1_Register_vehicle.py", label="📊 Vehicle Dashboard")
+    st.page_link("pages/2_Add_Part.py", label="⚙️ Add Parts")
+    st.page_link("pages/3_View_Vehicle_Dashboard.py", label="📈 Vehicle Dashboard")
+    st.page_link("pages/4_service_report.py", label="🧰 Service Report")
 
+    
 number_plate = st.text_input("Enter Vehicle Number Plate").upper().strip()
 
 # Step 1: Fetch vehicle
@@ -58,6 +77,7 @@ if 'vehicle_data' in st.session_state:
 
     # 📝 Optional mechanic notes
     mechanic_note = st.text_area("📝 Mechanic Notes (optional)")
+    update_vehicle_last_serviced(number_plate,mechanic_note)
 
     # Step 3: Submit updates
     if st.button("Submit Report"):

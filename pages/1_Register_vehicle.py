@@ -2,7 +2,25 @@ import streamlit as st
 from register import register_vehicle_in_tinydb
 
 st.title("📋 Register a New Vehicle")
+st.markdown("""
+    <style>
+    [data-testid="stSidebarNav"] {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+with st.sidebar:
+    
+    st.markdown(
+    """
+    <div style='padding:20px;'></div>
+    """,unsafe_allow_html=True)
+    st.page_link("pages/1_Register_vehicle.py", label="📊 Vehicle Dashboard")
+    st.page_link("pages/2_Add_Part.py", label="⚙️ Add Parts")
+    st.page_link("pages/3_View_Vehicle_Dashboard.py", label="📈 Vehicle Dashboard")
+    st.page_link("pages/4_service_report.py", label="🧰 Service Report")
 
+    
 with st.form("vehicle_form"):
     number_plate = st.text_input("Number Plate")
     owner_name = st.text_input("Owner Name")

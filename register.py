@@ -136,18 +136,20 @@ def update_part_for_vehicle(number_plate, vehicle_part, updated_part):
     return True
 
 # Update vehicle's last serviced field
-def update_vehicle_last_serviced(number_plate, mechanic_note=""):
+def update_vehicle_last_serviced(number_plate, mechanic_note):
     Vehicle = Query()
-    vehicle = db.search(Vehicle.number_plate == number_plate)
-    if not vehicle:
-        return False
+    vehicles = db.search(Vehicle.number_plate == number_plate)
 
-    update_fields = {'last_serviced': datetime.now().strftime("%Y-%m-%d")}
-    if mechanic_note.strip():
-        update_fields['mechanic_note'] = mechanic_note.strip()
+    if not vehicles:
+        return {"status": "not_found", "message": f"No vehicle found for {number_plate}"}
 
-    db.update(update_fields, Vehicle.number_plate == number_plate)
-    return True
+    vehicle = vehicles[0]
+    vehicle["last_serviced"] = datetime.now().strftime("%Y-%m-%d")
+    vehicle["last_mechanic_note"] = mechanic_note  # ✅ Add this line
+
+    db.update(vehicle, Vehicle.number_plate == number_plate)
+    return {"status": "success", "message": "Vehicle service info updated."}
+
 
 def update_vehicle_odometer(number_plate, new_km):
     Vehicle = Query()

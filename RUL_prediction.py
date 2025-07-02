@@ -80,14 +80,14 @@ def predict_rul_from_db(number_plate: str):
 
     # Save updates to database
     db.update(vehicle, Vehicle.number_plate == number_plate)
-    return "rul function executed"
+    return "rul function executed "
 
 
 # 🔘 MAIN INTERACTIVE SECTION
 if __name__ == "__main__":
     print("🚗 Vehicle Part RUL Predictor")
     
-    number_plate_input = 'AP13AF5006'
+    number_plate_input = 'AB05DE2003'
 
     if number_plate_input.lower() == 'exit':
         print("👋 Exiting. Have a great day!")

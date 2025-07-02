@@ -180,8 +180,67 @@
                     "RUL_km": 40017.57
                 }
             ],
-            "last_serviced": "2025-05-29",
-            "Odometer_Reading": 325999
+            "last_serviced": "2025-06-01",
+            "Odometer_Reading": 325999,
+            "last_mechanic_note": "working"
+        },
+        "6": {
+            "number_plate": "AB05DE2003",
+            "owner_name": "abdullah",
+            "vehicle_type": "car",
+            "make_year": 2024,
+            "color": "black",
+            "phone_number": "9550807130",
+            "fuel_type": "Petrol",
+            "transmission_type": "Automatic",
+            "engine_size": 2000,
+            "odometer_reading": 100000,
+            "fuel_efficiency": 12,
+            "tire_condition": "New",
+            "brake_condition": "New",
+            "battery_status": "New",
+            "owner_type": "New",
+            "accident_history": 0,
+            "parts": [
+                {
+                    "vehicle_part": "air filter",
+                    "last_service_km": 1000,
+                    "manufacture_date": "2025-05-01",
+                    "last_service_date": "2025-06-01",
+                    "condition_notes": "new",
+                    "RUL_km": ""
+                }
+            ],
+            "last_serviced": "2025-06-01",
+            "last_mechanic_note": ""
+        },
+        "7": {
+            "number_plate": "TG13B2081",
+            "owner_name": "khaleeq imran",
+            "vehicle_type": "car",
+            "make_year": 2023,
+            "color": "blue",
+            "phone_number": "9515946057",
+            "fuel_type": "Petrol",
+            "transmission_type": "Manual",
+            "engine_size": 1299,
+            "odometer_reading": 200000,
+            "fuel_efficiency": 14,
+            "tire_condition": "New",
+            "brake_condition": "New",
+            "battery_status": "New",
+            "owner_type": "New",
+            "accident_history": 0,
+            "parts": [
+                {
+                    "vehicle_part": "air filter",
+                    "last_service_km": 1000,
+                    "manufacture_date": "2025-03-01",
+                    "last_service_date": "2025-05-01",
+                    "condition_notes": "no need of change for now\n",
+                    "RUL_km": ""
+                }
+            ]
         }
     }
 }

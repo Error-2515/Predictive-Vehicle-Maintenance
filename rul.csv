@@ -1,4 +1,4 @@
-vehicle_type,vehicle_part,total_km,last_service_km,RUL_km
+vehicle_type,vehicle_part,odometer_reading,last_service_km,RUL_km
 truck,battery,75809,152589,4626
 truck,brake_pad,82274,92013,4903
 truck,transmission,67865,164247,9838
