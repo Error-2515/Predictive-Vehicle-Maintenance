@@ -22,7 +22,7 @@ if st.button("Search"):
         st.write(f"**Make Year:** {vehicle['make_year']}")
         st.write(f"**Color:** {vehicle['color']}")
         st.write(f"**Phone:** {vehicle['phone_number']}")
-        st.write(f"**Ododmeter:** {vehicle['odometer_reading']}")
+        st.write(f"**Odometer:** {vehicle['odometer_reading']}")
         # 🔍 Predict maintenance using function from pmv.py
         prediction = predict_by_number_plate(number_plate)
 

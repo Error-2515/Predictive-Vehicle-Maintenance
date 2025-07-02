@@ -62,7 +62,7 @@ def fetch_vehicle_with_parts(number_plate):
     vehicle = db.search(Vehicle.number_plate == number_plate)
 
     if not vehicle:
-        return {'status': 'not_found', 'message': f"Vehicle {number_plate} not found in TinyDB."}
+        return {'status': 'not_found', 'message': f"Vehicle {number_plate} not found."}
 
     vehicle_data = vehicle[0]
     today = datetime.now().date()
